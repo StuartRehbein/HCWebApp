@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Runtime.Serialization;
+using System.ComponentModel.DataAnnotations;
 
 namespace HCPeopleModel
 {
@@ -14,6 +14,7 @@ namespace HCPeopleModel
         }
         public int PersonID { get; set; }
         public string FirstName { get; set; }
+        [Required]
         public string LastName { get; set; }
         public DateTime Birthday { get; set; }
         public virtual ICollection<Address> Addresses { get; set; }
@@ -24,6 +25,7 @@ namespace HCPeopleModel
     {
         public int AddressID { get; set; }
         public int AddrTypeID { get; set; }
+        [Required] 
         public string Street1 { get; set; }
         public string Street2 { get; set; }
         public string City { get; set; }
@@ -42,6 +44,7 @@ namespace HCPeopleModel
     public class Interest
     {
         public int InterestID { get; set; }
+        [Required] 
         public string Description { get; set; }
         public int? PersonID { get; set; } //Foreign-Key property
         public virtual Person Person { get; set; } // Navigational Property }
